@@ -1,5 +1,5 @@
 /* ==========================================================================
-   UZUM MARKET — ADVANCED ANIMATIONS & MULTI-THEME COLOR SYSTEM
+   UMAR MERKET — ADVANCED ANIMATIONS & MULTI-THEME COLOR SYSTEM
    ========================================================================== */
 
 /* ---------- CSS VARIABLES & COLOR PALETTES ---------- */
@@ -500,7 +500,7 @@ button {
   transform: rotate(10deg) scale(1.08);
 }
 
-.uzum-grape-icon {
+.umar-grape-icon {
   width: 100%;
   height: 100%;
   filter: drop-shadow(0 4px 10px rgba(var(--primary-rgb), 0.3));

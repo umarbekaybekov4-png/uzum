@@ -1,9 +1,9 @@
 /* ==========================================================================
-   UZUM MARKET — ADVANCED E-COMMERCE JAVASCRIPT
+   UMAR MERKET — ADVANCED E-COMMERCE JAVASCRIPT
    Animations, Multi-Theme Engine, Cart & Favorites, Dynamic Catalog
    ========================================================================== */
 
-// ---------- SAMPLE PRODUCTS DATABASE (Real Uzum Style) ----------
+// ---------- SAMPLE PRODUCTS DATABASE (Real Umar Merket Style) ----------
 const PRODUCTS = [
   {
     id: 1,
@@ -164,10 +164,10 @@ const PRODUCTS = [
 ];
 
 // ---------- STATE MANAGEMENT ----------
-let currentTheme = localStorage.getItem('uzum_theme') || 'purple-gradient';
-let isDarkMode = localStorage.getItem('uzum_dark_mode') === 'true';
-let cart = JSON.parse(localStorage.getItem('uzum_cart')) || [];
-let favorites = JSON.parse(localStorage.getItem('uzum_favorites')) || [];
+let currentTheme = localStorage.getItem('umar_theme') || 'purple-gradient';
+let isDarkMode = localStorage.getItem('umar_dark_mode') === 'true';
+let cart = JSON.parse(localStorage.getItem('umar_cart')) || [];
+let favorites = JSON.parse(localStorage.getItem('umar_favorites')) || [];
 let currentCategory = 'all';
 let currentSort = 'popular';
 let promoApplied = false;
@@ -228,8 +228,8 @@ function setupThemeListeners() {
       const selectedTheme = btn.getAttribute('data-color');
       currentTheme = selectedTheme;
       isDarkMode = (selectedTheme === 'cyber-dark');
-      localStorage.setItem('uzum_theme', currentTheme);
-      localStorage.setItem('uzum_dark_mode', isDarkMode);
+      localStorage.setItem('umar_theme', currentTheme);
+      localStorage.setItem('umar_dark_mode', isDarkMode);
       applyTheme(currentTheme, isDarkMode);
       showToast('Ranglar palitrasi yangilandi!', 'fa-palette');
     });
@@ -237,10 +237,10 @@ function setupThemeListeners() {
 
   darkModeBtn.addEventListener('click', () => {
     isDarkMode = !isDarkMode;
-    localStorage.setItem('uzum_dark_mode', isDarkMode);
+    localStorage.setItem('umar_dark_mode', isDarkMode);
     if (!isDarkMode && currentTheme === 'cyber-dark') {
       currentTheme = 'purple-gradient';
-      localStorage.setItem('uzum_theme', currentTheme);
+      localStorage.setItem('umar_theme', currentTheme);
     }
     applyTheme(currentTheme, isDarkMode);
     showToast(isDarkMode ? 'Tungi rejim yoqildi 🌙' : 'Kunduzgi rejim yoqildi ☀️', 'fa-moon');
@@ -691,7 +691,7 @@ function setupCartDrawer() {
     const promoInput = document.getElementById('promoCodeInput');
     const code = promoInput.value.trim().toUpperCase();
 
-    if (code === 'UZUM2026' || code === 'CHEGIRMA') {
+    if (code === 'UMAR2026' || code === 'CHEGIRMA') {
       promoApplied = true;
       promoDiscountPercent = 10;
       updateCartCalculations();
@@ -699,7 +699,7 @@ function setupCartDrawer() {
       promoInput.disabled = true;
       applyPromoBtn.textContent = 'Qo\'llandi ✓';
     } else {
-      showToast('Yaroqsiz promo-kod! "UZUM2026" deb yozing', 'fa-circle-exclamation');
+      showToast('Yaroqsiz promo-kod! "UMAR2026" deb yozing', 'fa-circle-exclamation');
     }
   });
 
@@ -709,7 +709,7 @@ function setupCartDrawer() {
     
     // Generate random order ID
     const randomNum = Math.floor(10000 + Math.random() * 90000);
-    document.getElementById('orderNumber').textContent = `#UZ-${randomNum}`;
+    document.getElementById('orderNumber').textContent = `#UM-${randomNum}`;
     
     // Clear cart
     cart = [];
@@ -852,7 +852,7 @@ function updateCartCalculations() {
 }
 
 function saveCart() {
-  localStorage.setItem('uzum_cart', JSON.stringify(cart));
+  localStorage.setItem('umar_cart', JSON.stringify(cart));
 }
 
 // ==========================================================================
@@ -899,7 +899,7 @@ function toggleFavorite(event, productId) {
     badge.classList.add('badge-bump');
   }
 
-  localStorage.setItem('uzum_favorites', JSON.stringify(favorites));
+  localStorage.setItem('umar_favorites', JSON.stringify(favorites));
   updateFavoritesCounters();
   renderProducts();
 }
