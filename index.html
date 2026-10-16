@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="purple-gradient">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uzum Market — Internet-do'kon | Tez yetkazib berish va arzon narxlar</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://uzum.uz/static/img/favicon.ico" type="image/x-icon">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Notification / Announcement Bar with Glow Animation -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-left">
+        <span class="pulse-badge"><i class="fa-solid fa-bolt"></i> AKSIYA</span>
+        <span class="announcement-text">Barcha buyurtmalarni ertaga <strong>1 kunda bepul</strong> yetkazib beramiz!</span>
+      </div>
+      
+      <!-- Theme & Color Switcher Quick Bar -->
+      <div class="theme-quick-bar">
+        <span class="theme-label"><i class="fa-solid fa-palette"></i> Ranglar palitrasi:</span>
+        <div class="palette-dots">
+          <button class="palette-btn active" data-color="purple-gradient" title="Neon Binafsha (Default)">
+            <span style="background: linear-gradient(135deg, #7C3AED, #EC4899);"></span>
+          </button>
+          <button class="palette-btn" data-color="sapphire-blue" title="Zangori Safir (Ocean Blue)">
+            <span style="background: linear-gradient(135deg, #0284C7, #06B6D4);"></span>
+          </button>
+          <button class="palette-btn" data-color="emerald-luxury" title="Zumrad Yashil (Emerald Green)">
+            <span style="background: linear-gradient(135deg, #059669, #10B981);"></span>
+          </button>
+          <button class="palette-btn" data-color="sunset-coral" title="Oltin Quyosh (Sunset Coral)">
+            <span style="background: linear-gradient(135deg, #EA580C, #F59E0B);"></span>
+          </button>
+          <button class="palette-btn" data-color="cyber-dark" title="Cyber Tungi Rejim (Dark Mode)">
+            <span style="background: linear-gradient(135deg, #0F172A, #8B5CF6);"></span>
+          </button>
+        </div>
+
+        <button class="dark-mode-toggle" id="darkModeBtn" title="Tungi / Kunduzgi rejim">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <div class="announcement-right">
+        <div class="city-selector">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Shahar: <strong id="currentCity">Toshkent</strong></span>
+          <i class="fa-solid fa-chevron-down city-arrow"></i>
+          <div class="city-dropdown">
+            <a href="#" data-city="Toshkent" class="active">Toshkent</a>
+            <a href="#" data-city="Samarqand">Samarqand</a>
+            <a href="#" data-city="Buxoro">Buxoro</a>
+            <a href="#" data-city="Andijon">Andijon</a>
+            <a href="#" data-city="Farg'ona">Farg'ona</a>
+            <a href="#" data-city="Namangan">Namangan</a>
+          </div>
+        </div>
+        <a href="#delivery" class="top-link"><i class="fa-solid fa-box"></i> Topshirish punktlari</a>
+        <a href="#faq" class="top-link"><i class="fa-solid fa-circle-question"></i> Savol-javoblar</a>
+        <div class="lang-selector">
+          <span class="active-lang">O'zbekcha</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header with Glassmorphism & Sticky Animation -->
+  <header class="main-header" id="mainHeader">
+    <div class="container header-container">
+      
+      <!-- Brand Logo with animated gradient effect -->
+      <a href="#" class="brand-logo" id="logoLink">
+        <div class="logo-icon-wrap">
+          <svg class="uzum-grape-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="19" fill="url(#logo-grad)" />
+            <circle cx="16" cy="14" r="3.2" fill="#FFFFFF" />
+            <circle cx="24" cy="14" r="3.2" fill="#FFFFFF" />
+            <circle cx="12" cy="20" r="3.2" fill="#FFFFFF" />
+            <circle cx="20" cy="20" r="3.2" fill="#FFFFFF" />
+            <circle cx="28" cy="20" r="3.2" fill="#FFFFFF" />
+            <circle cx="16" cy="26" r="3.2" fill="#FFFFFF" />
+            <circle cx="24" cy="26" r="3.2" fill="#FFFFFF" />
+            <circle cx="20" cy="31" r="2.6" fill="#FFFFFF" />
+            <path d="M20 6C20 6 22 9 24 10" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop stop-color="var(--primary)" />
+                <stop offset="1" stop-color="var(--secondary)" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-name">uzum <span class="logo-badge-accent">market</span></span>
+          <span class="logo-slogan">Ertaga yetkazamiz</span>
+        </div>
+      </a>
+
+      <!-- Animated Catalog Button -->
+      <button class="catalog-btn" id="catalogBtn">
+        <div class="catalog-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="catalog-btn-text">Katalog</span>
+      </button>
+
+      <!-- Smart Animated Search Bar -->
+      <div class="search-wrapper">
+        <form class="search-form" id="searchForm">
+          <input 
+            type="text" 
+            class="search-input" 
+            id="searchInput" 
+            placeholder="Mahsulotlar va toifalardan qidirish..." 
+            autocomplete="off"
+          >
+          <button type="button" class="search-clear-btn" id="searchClearBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <button type="submit" class="search-submit-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <!-- Live Search Autocomplete Popover -->
+        <div class="search-popover" id="searchPopover">
+          <div class="search-tags-header">Ommabop qidiruvlar:</div>
+          <div class="search-quick-tags">
+            <button class="tag-chip" data-search="iPhone 15 Pro"><i class="fa-solid fa-arrow-trend-up"></i> iPhone 15 Pro</button>
+            <button class="tag-chip" data-search="Noutbuk"><i class="fa-solid fa-arrow-trend-up"></i> Noutbuk</button>
+            <button class="tag-chip" data-search="Dyson"><i class="fa-solid fa-arrow-trend-up"></i> Dyson fen</button>
+            <button class="tag-chip" data-search="Krossovka"><i class="fa-solid fa-arrow-trend-up"></i> Krossovka</button>
+            <button class="tag-chip" data-search="AirPods"><i class="fa-solid fa-arrow-trend-up"></i> AirPods</button>
+          </div>
+          <div class="search-results-list" id="searchResultsList"></div>
+        </div>
+      </div>
+
+      <!-- Action Navigation Buttons (Favorites, Cart, Profile) -->
+      <div class="header-actions">
+        <!-- User Profile -->
+        <button class="action-btn" id="profileBtn" title="Profil">
+          <div class="action-icon-box">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <span class="action-btn-text">Kirish</span>
+        </button>
+
+        <!-- Favorites (Saralanganlar) -->
+        <button class="action-btn" id="favoritesBtn" title="Saralanganlar">
+          <div class="action-icon-box">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count" id="favoritesCount">0</span>
+          </div>
+          <span class="action-btn-text">Saralangan</span>
+        </button>
+
+        <!-- Cart (Savat) -->
+        <button class="action-btn cart-action-btn" id="cartBtn" title="Savat">
+          <div class="action-icon-box">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count" id="cartCount">0</span>
+          </div>
+          <div class="cart-btn-details">
+            <span class="action-btn-text">Savat</span>
+            <span class="cart-total-header" id="cartHeaderTotal">0 so'm</span>
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Horizontal Categories Navigation Bar -->
+  <nav class="categories-nav-bar">
+    <div class="container categories-nav-container">
+      <ul class="categories-nav-list" id="categoriesNavList">
+        <li class="active" data-cat="all"><i class="fa-solid fa-fire text-accent"></i> Barcha toifalar</li>
+        <li data-cat="elektronika"><i class="fa-solid fa-laptop"></i> Elektronika</li>
+        <li data-cat="maishiy"><i class="fa-solid fa-blender"></i> Maishiy texnika</li>
+        <li data-cat="kiyim"><i class="fa-solid fa-shirt"></i> Kiyim-kechak</li>
+        <li data-cat="poyabzal"><i class="fa-solid fa-shoe-prints"></i> Poyabzallar</li>
+        <li data-cat="aksessuar"><i class="fa-solid fa-headphones"></i> Aksessuarlar</li>
+        <li data-cat="gozallik"><i class="fa-solid fa-wand-magic-sparkles"></i> Go'zallik</li>
+        <li data-cat="salomatlik"><i class="fa-solid fa-heart-pulse"></i> Salomatlik</li>
+        <li data-cat="muddatli" class="nav-highlight"><i class="fa-solid fa-tag"></i> 0-0-12 Muddatli to'lov</li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mega Menu Dropdown Modal (Catalog) -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="container mega-menu-container">
+      <div class="mega-sidebar">
+        <div class="mega-cat-item active" data-sub="m-elektronika"><i class="fa-solid fa-mobile-screen-button"></i> Smartfonlar va gadjetlar</div>
+        <div class="mega-cat-item" data-sub="m-maishiy"><i class="fa-solid fa-blender-phone"></i> Maishiy texnika</div>
+        <div class="mega-cat-item" data-sub="m-noutbuk"><i class="fa-solid fa-laptop-code"></i> Noutbuk va kompyuterlar</div>
+        <div class="mega-cat-item" data-sub="m-kiyim"><i class="fa-solid fa-shirt"></i> Erkaklar va ayollar kiyimi</div>
+        <div class="mega-cat-item" data-sub="m-poyabzal"><i class="fa-solid fa-socks"></i> Sport va klassik poyabzal</div>
+        <div class="mega-cat-item" data-sub="m-gozallik"><i class="fa-solid fa-spa"></i> Go'zallik va parvarish</div>
+        <div class="mega-cat-item" data-sub="m-uy"><i class="fa-solid fa-house"></i> Uy-ro'zg'or buyumlari</div>
+      </div>
+      <div class="mega-content" id="megaContent">
+        <div class="mega-columns">
+          <div class="mega-col">
+            <h4>Smartfonlar</h4>
+            <a href="#">Apple iPhone</a>
+            <a href="#">Samsung Galaxy</a>
+            <a href="#">Xiaomi & Redmi</a>
+            <a href="#">Honor & Realme</a>
+            <a href="#">Smartfon g'iloflari</a>
+          </div>
+          <div class="mega-col">
+            <h4>Quloqchinlar va audio</h4>
+            <a href="#">Simsiz quloqchinlar</a>
+            <a href="#">AirPods</a>
+            <a href="#">Portativ karnaylar</a>
+            <a href="#">Ovoz kuchaytirgichlar</a>
+          </div>
+          <div class="mega-col">
+            <h4>Aqlli soatlar</h4>
+            <a href="#">Apple Watch</a>
+            <a href="#">Samsung Galaxy Watch</a>
+            <a href="#">Fitness bilaguzuklar</a>
+            <a href="#">Bolalar uchun GPS soatlar</a>
+          </div>
+          <div class="mega-col promo-col">
+            <div class="mega-promo-card">
+              <span class="promo-pill">Yangi mavsum</span>
+              <h3>Yangi iPhone 15 Pro Max</h3>
+              <p>12 oyga foizsiz muddatli to'lov bilan</p>
+              <button class="btn btn-sm btn-primary">Xarid qilish</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SLIDER SECTION WITH ANIMATED CAROUSEL -->
+    <section class="hero-carousel-section">
+      <div class="container">
+        <div class="carousel-wrapper" id="carouselWrapper">
+          <div class="carousel-track" id="carouselTrack">
+            
+            <!-- Slide 1 -->
+            <div class="carousel-slide slide-1">
+              <div class="slide-content">
+                <span class="slide-badge pulse-badge"><i class="fa-solid fa-bolt"></i> BAHORGI KATTA SOTUV</span>
+                <h1 class="slide-title">Barcha elektronika va gadjetlarga <span>70% gacha</span> chegirma!</h1>
+                <p class="slide-desc">Eng so'nggi rusumdagi smartfonlar, noutbuklar va aqlli maishiy texnikani 1 kunda yetkazib berish bilan oling.</p>
+                <div class="slide-actions">
+                  <button class="btn btn-primary glow-btn" onclick="scrollToCatalog()">
+                    <i class="fa-solid fa-basket-shopping"></i> Xarid qilish
+                  </button>
+                  <div class="slide-perk">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Ertaga bepul yetkazamiz</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-image-art">
+                <div class="floating-circle-blur"></div>
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80" alt="Gadgets Promo" class="slide-img floating-anim">
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide slide-2">
+              <div class="slide-content">
+                <span class="slide-badge badge-green"><i class="fa-solid fa-credit-card"></i> 0-0-12 MUDDATLI TO'LOV</span>
+                <h1 class="slide-title">Ortiqcha to'lovlarsiz <span>12 oyga</span> teng bo'lib to'lang!</h1>
+                <p class="slide-desc">Boshlang'ich to'lovsiz, pensiyasiz va garovsiz rasmiylashtiring. Faqat pasport kifoya!</p>
+                <div class="slide-actions">
+                  <button class="btn btn-primary glow-btn" onclick="filterByCategory('muddatli')">
+                    <i class="fa-solid fa-arrow-right"></i> Mahsulotlarni ko'rish
+                  </button>
+                  <div class="slide-perk">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>100% Halol muddatli to'lov</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-image-art">
+                <div class="floating-circle-blur"></div>
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&auto=format&fit=crop&q=80" alt="Laptops Promo" class="slide-img floating-anim">
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide slide-3">
+              <div class="slide-content">
+                <span class="slide-badge badge-orange"><i class="fa-solid fa-wand-magic-sparkles"></i> GO'ZALLIK VA MODA</span>
+                <h1 class="slide-title">Zamonaviy kiyimlar va <span>parvarish vositalari</span></h1>
+                <p class="slide-desc">Dyson, L'Oreal, Nike, Zara brendlarining original to'plamlari qulay narxlarda.</p>
+                <div class="slide-actions">
+                  <button class="btn btn-primary glow-btn" onclick="filterByCategory('gozallik')">
+                    <i class="fa-solid fa-bag-shopping"></i> To'plamni ochish
+                  </button>
+                  <div class="slide-perk">
+                    <i class="fa-solid fa-star"></i>
+                    <span>100% Original kafolati</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-image-art">
+                <div class="floating-circle-blur"></div>
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&auto=format&fit=crop&q=80" alt="Beauty Promo" class="slide-img floating-anim">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-btn prev-btn" id="prevSlideBtn" aria-label="Oldingi slayd">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next-btn" id="nextSlideBtn" aria-label="Keyingi slayd">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Carousel Indicators -->
+          <div class="carousel-dots" id="carouselDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST / VALUE PROPOSITION PERKS -->
+    <section class="perks-section">
+      <div class="container">
+        <div class="perks-grid">
+          
+          <div class="perk-card">
+            <div class="perk-icon-wrap" style="background: rgba(124, 58, 237, 0.1); color: var(--primary);">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <div class="perk-info">
+              <h4>1 kunda bepul yetkazish</h4>
+              <p>Kuryer orqali yoki qulay topshirish punktlariga</p>
+            </div>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon-wrap" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div class="perk-info">
+              <h4>Qulay muddatli to'lov</h4>
+              <p>0-0-12 bo'yicha ortiqcha foizlarsiz to'lov</p>
+            </div>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon-wrap" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="perk-info">
+              <h4>Original mahsulotlar</h4>
+              <p>Barcha mahsulotlar sertifikatlangan</p>
+            </div>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon-wrap" style="background: rgba(236, 72, 153, 0.1); color: #EC4899;">
+              <i class="fa-solid fa-rotate-left"></i>
+            </div>
+            <div class="perk-info">
+              <h4>Oson qaytarish</h4>
+              <p>10 kun ichida nuqsonsiz qaytarish imkoni</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CIRCULAR POPULAR CATEGORIES WITH HOVER BOUNCE -->
+    <section class="quick-categories-section">
+      <div class="container">
+        <div class="section-header-row">
+          <h2 class="section-title"><i class="fa-solid fa-layer-group text-primary"></i> Ommabop toifalar</h2>
+          <span class="sub-link" onclick="openAllCategories()">Barchasi <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+
+        <div class="category-bubbles-grid">
+          <div class="cat-bubble" onclick="filterByCategory('elektronika')">
+            <div class="bubble-img-wrap">
+              <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300&auto=format&fit=crop&q=80" alt="Smartfonlar">
+            </div>
+            <span class="bubble-title">Smartfonlar</span>
+          </div>
+
+          <div class="cat-bubble" onclick="filterByCategory('maishiy')">
+            <div class="bubble-img-wrap">
+              <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=300&auto=format&fit=crop&q=80" alt="Maishiy texnika">
+            </div>
+            <span class="bubble-title">Maishiy texnika</span>
+          </div>
+
+          <div class="cat-bubble" onclick="filterByCategory('kiyim')">
+            <div class="bubble-img-wrap">
+              <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=300&auto=format&fit=crop&q=80" alt="Kiyimlar">
+            </div>
+            <span class="bubble-title">Kiyim-kechak</span>
+          </div>
+
+          <div class="cat-bubble" onclick="filterByCategory('poyabzal')">
+            <div class="bubble-img-wrap">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop&q=80" alt="Poyabzallar">
+            </div>
+            <span class="bubble-title">Poyabzallar</span>
+          </div>
+
+          <div class="cat-bubble" onclick="filterByCategory('aksessuar')">
+            <div class="bubble-img-wrap">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&auto=format&fit=crop&q=80" alt="Aksessuarlar">
+            </div>
+            <span class="bubble-title">Aksessuarlar</span>
+          </div>
+
+          <div class="cat-bubble" onclick="filterByCategory('gozallik')">
+            <div class="bubble-img-wrap">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&auto=format&fit=crop&q=80" alt="Go'zallik">
+            </div>
+            <span class="bubble-title">Go'zallik</span>
+          </div>
+
+          <div class="cat-bubble" onclick="filterByCategory('muddatli')">
+            <div class="bubble-img-wrap highlight-bubble">
+              <i class="fa-solid fa-percent"></i>
+            </div>
+            <span class="bubble-title">Muddatli 0-0-12</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASH SALE SECTION WITH LIVE COUNTDOWN TIMER & ANIMATED FLAME -->
+    <section class="flash-sale-section" id="flashSale">
+      <div class="container">
+        <div class="flash-sale-card">
+          <div class="flash-sale-header">
+            <div class="flash-title-wrap">
+              <span class="flash-fire-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
+              <div class="flash-text-group">
+                <h3 class="flash-main-title">Hafta Chegirmalari</h3>
+                <p class="flash-sub-title">Eng past narxlarda xarid qilishga ulgurib qoling!</p>
+              </div>
+            </div>
+
+            <!-- Animated Countdown Timer -->
+            <div class="countdown-container">
+              <span class="countdown-label">Tugashiga qoldi:</span>
+              <div class="countdown-boxes">
+                <div class="timer-box">
+                  <span class="time-digit" id="timerHours">08</span>
+                  <span class="time-text">Soat</span>
+                </div>
+                <span class="timer-separator">:</span>
+                <div class="timer-box">
+                  <span class="time-digit" id="timerMinutes">42</span>
+                  <span class="time-text">Daqiqa</span>
+                </div>
+                <span class="timer-separator">:</span>
+                <div class="timer-box highlight-second">
+                  <span class="time-digit" id="timerSeconds">19</span>
+                  <span class="time-text">Soniya</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT CATALOG & FILTER SECTION -->
+    <section class="catalog-section" id="productsCatalog">
+      <div class="container">
+        
+        <!-- Filter and Sort Header Bar -->
+        <div class="catalog-toolbar">
+          <div class="filter-pills" id="filterPills">
+            <button class="pill-btn active" data-filter="all">Barchasi</button>
+            <button class="pill-btn" data-filter="elektronika">Elektronika</button>
+            <button class="pill-btn" data-filter="maishiy">Maishiy texnika</button>
+            <button class="pill-btn" data-filter="kiyim">Kiyimlar</button>
+            <button class="pill-btn" data-filter="poyabzal">Poyabzallar</button>
+            <button class="pill-btn" data-filter="aksessuar">Aksessuarlar</button>
+            <button class="pill-btn" data-filter="gozallik">Go'zallik</button>
+          </div>
+
+          <div class="sort-selector-wrap">
+            <label for="sortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Saralash:</label>
+            <select id="sortSelect" class="sort-select">
+              <option value="popular">Ommabopligi bo'yicha</option>
+              <option value="price-asc">Avval arzonlari</option>
+              <option value="price-desc">Avval qimmatlari</option>
+              <option value="discount">Katta chegirma</option>
+              <option value="rating">Yuqori reyting</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid Container -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Dynamically generated via app.js -->
+        </div>
+
+        <!-- No Results Feedback -->
+        <div class="no-products-found" id="noProductsFound" style="display: none;">
+          <div class="empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3>Mahsulot topilmadi</h3>
+          <p>Kiritilgan qidiruv bo'yicha tovarlar mavjud emas. Boshqa toifani tanlab ko'ring.</p>
+          <button class="btn btn-primary" onclick="resetFilters()">Barcha mahsulotlar</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SPECIAL INTERACTIVE BANNER: MOBILE APP & PROMO -->
+    <section class="app-promo-section">
+      <div class="container">
+        <div class="app-banner-card">
+          <div class="app-banner-content">
+            <span class="promo-mini-badge"><i class="fa-solid fa-gift"></i> BIRINCHI XARIDGA 20 000 SO'M</span>
+            <h2>Ilovamizni yuklab oling va qulayroq xarid qiling!</h2>
+            <p>Smartfoningizda yanada tezroq buyurtma bering, maxsus promo-kodlarga ega bo'ling va keshbek yig'ing.</p>
+            
+            <div class="app-badges">
+              <a href="#" class="store-badge">
+                <i class="fa-brands fa-apple"></i>
+                <div class="store-text">
+                  <span>Yuklab oling</span>
+                  <strong>App Store</strong>
+                </div>
+              </a>
+              <a href="#" class="store-badge">
+                <i class="fa-brands fa-google-play"></i>
+                <div class="store-text">
+                  <span>Mavjud</span>
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="app-banner-image">
+            <div class="app-phone-mockup">
+              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80" alt="Uzum App Preview">
+              <div class="phone-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CART SIDEBAR DRAWER (Slide-in with smooth backdrop blur) -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <div class="cart-title-row">
+        <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Savatingiz</h3>
+        <span class="cart-items-counter-badge" id="cartDrawerCount">0 ta tovar</span>
+      </div>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Yopish">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="delivery-progress-wrap">
+      <div class="progress-info-row">
+        <span><i class="fa-solid fa-truck"></i> Yetkazib berish: <strong>Bepul</strong></span>
+        <span class="free-text">100% Keshbek</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items List Container -->
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Items dynamically populated -->
+    </div>
+
+    <!-- Empty Cart State -->
+    <div class="empty-cart-state" id="emptyCartState">
+      <div class="empty-cart-icon-wrap">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+      <h4>Savatingiz hozircha bo'sh</h4>
+      <p>Bosh sahifadagi aksiyalar yoki qidiruv orqali yoqqan mahsulotlarni tanlang</p>
+      <button class="btn btn-primary" onclick="closeCart()">Xarid qilishni boshlash</button>
+    </div>
+
+    <!-- Cart Footer & Checkout Total -->
+    <div class="cart-footer" id="cartFooter">
+      <div class="promo-input-row">
+        <input type="text" placeholder="Promo-kod: UZUM2026" id="promoCodeInput">
+        <button class="btn btn-secondary" id="applyPromoBtn">Qo'llash</button>
+      </div>
+
+      <div class="cart-summary-calculations">
+        <div class="summary-line">
+          <span>Tovarlar narxi:</span>
+          <span id="subtotalPrice">0 so'm</span>
+        </div>
+        <div class="summary-line discount-line">
+          <span>Tejovingiz:</span>
+          <span id="discountPrice">-0 so'm</span>
+        </div>
+        <div class="summary-line">
+          <span>Yetkazib berish:</span>
+          <span class="text-success">Bepul (1 kun)</span>
+        </div>
+        <div class="summary-line total-line">
+          <span>Jami to'lov:</span>
+          <strong id="finalTotalPrice">0 so'm</strong>
+        </div>
+      </div>
+
+      <button class="btn btn-primary checkout-btn glow-btn" id="checkoutBtn">
+        <span>Buyurtmani rasmiylashtirish</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- FAVORITES MODAL (Saralanganlar) -->
+  <div class="modal-overlay" id="favModalOverlay">
+    <div class="fav-modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-heart text-danger"></i> Saralangan mahsulotlar (<span id="favModalCount">0</span>)</h3>
+        <button class="modal-close-btn" id="favModalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="fav-modal-body" id="favModalBody">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW PRODUCT MODAL -->
+  <div class="modal-overlay" id="quickViewOverlay">
+    <div class="quick-view-card" id="quickViewCard">
+      <!-- Injected dynamically -->
+    </div>
+  </div>
+
+  <!-- ORDER SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModalOverlay">
+    <div class="success-modal-card">
+      <div class="success-check-circle">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3>Buyurtmangiz muvaffaqiyatli qabul qilindi!</h3>
+      <p>Buyurtma raqami: <strong id="orderNumber">#UZ-84920</strong></p>
+      <p class="success-desc">Ertaga kuryerimiz yoki topshirish punkti orqali buyurtmangizni qabul qilib olasiz. SMS orqali tasdiqnoma yuborildi.</p>
+      <button class="btn btn-primary" onclick="closeSuccessModal()">Davom etish</button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-col about-col">
+        <div class="footer-logo">
+          <span class="footer-brand">uzum <span class="logo-badge-accent">market</span></span>
+        </div>
+        <p class="footer-desc">O'zbekistondagi eng yirik milliy internet-bozor. Barcha tovarlar 1 kunda kafolatlangan holda butun respublika bo'ylab yetkazib beriladi.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          <a href="#" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="social-icon" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Foydalanuvchilarga</h4>
+        <ul class="footer-links">
+          <li><a href="#">Biz bilan bog'lanish</a></li>
+          <li><a href="#">Savol-Javob</a></li>
+          <li><a href="#">Tovarlarni qaytarish</a></li>
+          <li><a href="#">Yetkazib berish punktlari</a></li>
+          <li><a href="#">Muddatli to'lov shartlari</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tadbirkorlarga</h4>
+        <ul class="footer-links">
+          <li><a href="#">Uzumda soting</a></li>
+          <li><a href="#">Sotuvchi kabinetiga kirish</a></li>
+          <li><a href="#">Topshirish punktini ochish</a></li>
+          <li><a href="#">Yetkazib beruvchilar uchun</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ilovani o'rnating</h4>
+        <div class="app-download-buttons">
+          <a href="#" class="footer-store-btn"><i class="fa-brands fa-apple"></i> App Store</a>
+          <a href="#" class="footer-store-btn"><i class="fa-brands fa-google-play"></i> Google Play</a>
+        </div>
+        <h4 style="margin-top: 20px;">To'lov usullari</h4>
+        <div class="payment-badges">
+          <span class="pay-chip"><i class="fa-solid fa-credit-card"></i> Uzcard</span>
+          <span class="pay-chip"><i class="fa-solid fa-credit-card"></i> Humo</span>
+          <span class="pay-chip"><i class="fa-brands fa-cc-visa"></i> Visa</span>
+          <span class="pay-chip"><i class="fa-brands fa-cc-mastercard"></i> Master</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>© 2026 MChJ «UZUM MARKET». Barcha huquqlar himoyalangan.</p>
+        <div class="footer-terms">
+          <a href="#">Maxfiylik kelishuvi</a>
+          <a href="#">Foydalanuvchi shartnomasi</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
+
